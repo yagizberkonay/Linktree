@@ -1,52 +1,65 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yağız Berk Önay | Portfolio</title>
+  <title>Yağız Berk Önay | Senior Software Engineer</title>
   
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Phosphor Icons (İkonlar için) -->
+  <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   
-  <!-- Google Fonts (Minimalist Tipografi) -->
+  <!-- Google Fonts: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
+    body { font-family: 'Inter', sans-serif; }
+    .bento-card { transition: all 0.3s ease; }
+    .bento-card:hover { border-color: #d4d4d8; box-shadow: 0 4px 25px -5px rgba(0, 0, 0, 0.05); }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f4f4f5; }
+    ::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 4px; }
   </style>
 </head>
-<body class="min-h-screen bg-zinc-100 text-zinc-900 p-4 md:p-8 lg:p-12 selection:bg-zinc-900 selection:text-white">
+<body class="min-h-screen bg-[#F9F9FB] text-zinc-900 p-4 md:p-8 lg:p-12 selection:bg-zinc-900 selection:text-white">
 
   <div class="max-w-6xl mx-auto space-y-6">
     
-    <!-- HEADER / HERO SECTION -->
-    <header class="bg-white rounded-2xl p-6 md:p-10 border border-zinc-200/80 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-      <div>
-        <span class="inline-block px-3 py-1 bg-zinc-100 text-zinc-600 rounded-full text-xs font-mono mb-3 border border-zinc-200">
-          Software Developer & Founder
-        </span>
-        <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-zinc-900">
+    <!-- TOP BAR (Lang Toggle) -->
+    <div class="flex justify-end mb-4">
+      <button id="langToggle" onclick="toggleLanguage()" class="flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 rounded-full text-xs font-semibold text-zinc-600 hover:text-zinc-900 hover:border-zinc-300 transition-all shadow-sm">
+        <i class="ph ph-translate text-sm"></i>
+        <span id="langLabel">TR</span>
+      </button>
+    </div>
+
+    <!-- HERO SECTION -->
+    <header class="bento-card bg-white rounded-3xl p-8 md:p-12 border border-zinc-200/70 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 relative overflow-hidden">
+      <div class="absolute -top-24 -right-24 w-64 h-64 bg-zinc-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+
+      <div class="z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-zinc-100 text-zinc-700 rounded-full text-xs font-mono mb-5 border border-zinc-200/80">
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-900"></span>
+          <span data-i18n="role">Senior Software Engineer & Founder</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900">
           Yağız Berk Önay
         </h1>
-        <p class="text-zinc-500 mt-2 text-sm md:text-base max-w-xl">
-          Modern web mimarileri, çapraz platform masaüstü uygulamaları ve ölçeklenebilir dijital çözümler üretiyorum.
+        <p class="text-zinc-500 mt-4 text-base md:text-lg max-w-2xl leading-relaxed" data-i18n="heroDesc">
+          Architecting scalable systems, enterprise platforms, and modern web ecosystems.
         </p>
       </div>
 
-      <!-- Hızlı İletişim -->
-      <div class="flex flex-wrap gap-2">
-        <a href="https://wa.me/905442577760" target="_blank" class="inline-flex items-center gap-2 px-4 py-2.5 bg-zinc-900 text-white rounded-xl text-sm font-medium hover:bg-zinc-800 transition-colors">
+      <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto z-10">
+        <a href="https://wa.me/905442577760" target="_blank" class="inline-flex justify-center items-center gap-2 px-6 py-3 bg-zinc-900 text-white rounded-2xl text-sm font-medium hover:bg-zinc-800 transition-all hover:-translate-y-0.5 shadow-md shadow-zinc-900/10">
           <i class="ph ph-whatsapp-logo text-lg"></i>
-          <span>WhatsApp</span>
+          <span data-i18n="whatsapp">WhatsApp</span>
         </a>
-        <a href="mailto:info@yagizberkonay.com.tr" class="inline-flex items-center gap-2 px-4 py-2.5 bg-zinc-100 text-zinc-800 rounded-xl text-sm font-medium hover:bg-zinc-200 border border-zinc-200 transition-colors">
+        <a href="mailto:info@yagizberkonay.com.tr" class="inline-flex justify-center items-center gap-2 px-6 py-3 bg-white text-zinc-800 rounded-2xl text-sm font-medium hover:bg-zinc-50 border border-zinc-200 transition-all hover:-translate-y-0.5">
           <i class="ph ph-envelope-simple text-lg"></i>
-          <span>E-posta</span>
+          <span data-i18n="email">Email</span>
         </a>
       </div>
     </header>
@@ -54,143 +67,204 @@
     <!-- MAIN GRID -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
       
-      <!-- HAKKIMDA (8 Cols) -->
-      <section class="md:col-span-8 bg-white rounded-2xl p-6 md:p-8 border border-zinc-200/80 shadow-sm flex flex-col justify-between">
+      <!-- VISION / ABOUT SECTION (8 Cols) -->
+      <section class="bento-card md:col-span-8 bg-white rounded-3xl p-8 md:p-10 border border-zinc-200/70 flex flex-col justify-center">
         <div>
-          <div class="flex items-center gap-2 text-zinc-400 mb-4">
-            <i class="ph ph-code text-xl"></i>
-            <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-500">
-              Hakkımda & Deneyim
+          <div class="flex items-center gap-2 text-zinc-400 mb-6">
+            <i class="ph ph-terminal-window text-xl"></i>
+            <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-500 font-semibold" data-i18n="aboutTitle">
+              Vision & Approach
             </h2>
           </div>
-          <p class="text-zinc-700 leading-relaxed text-base md:text-lg mb-6">
-            Fikirleri yüksek performanslı, minimalist ve kullanıcı odaklı yazılımlara dönüştürüyorum. Özel web tabanlı platformlardan masaüstü çözümlerine (Tauri/Next.js) kadar uçtan uca mimariler tasarlıyor, temiz kod prensiplerini merkezime alıyorum.
+          <p class="text-zinc-700 leading-relaxed text-base md:text-[17px] font-medium" data-i18n="aboutText1">
+            I approach software engineering not merely as writing code, but as building resilient, scalable architectures that solve complex business problems.
           </p>
-        </div>
-
-        <!-- Tech Stack -->
-        <div>
-          <h3 class="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3">
-            Teknoloji Yığını
-          </h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1.5 bg-zinc-50 border border-zinc-200 rounded-lg text-xs font-medium text-zinc-700">Next.js</span>
-            <span class="px-3 py-1.5 bg-zinc-50 border border-zinc-200 rounded-lg text-xs font-medium text-zinc-700">TypeScript</span>
-            <span class="px-3 py-1.5 bg-zinc-50 border border-zinc-200 rounded-lg text-xs font-medium text-zinc-700">Tailwind CSS</span>
-            <span class="px-3 py-1.5 bg-zinc-50 border border-zinc-200 rounded-lg text-xs font-medium text-zinc-700">Tauri</span>
-            <span class="px-3 py-1.5 bg-zinc-50 border border-zinc-200 rounded-lg text-xs font-medium text-zinc-700">React</span>
-            <span class="px-3 py-1.5 bg-zinc-50 border border-zinc-200 rounded-lg text-xs font-medium text-zinc-700">Node.js</span>
-            <span class="px-3 py-1.5 bg-zinc-50 border border-zinc-200 rounded-lg text-xs font-medium text-zinc-700">REST & GraphQL</span>
-          </div>
+          <p class="text-zinc-500 leading-relaxed text-sm md:text-base mt-4" data-i18n="aboutText2">
+            My focus is on designing systems that anticipate bottlenecks, strictly adhere to clean code principles, and prioritize the end-user experience. I believe that while frameworks and tools constantly evolve, solid engineering fundamentals, system design, and architectural integrity remain permanent.
+          </p>
         </div>
       </section>
 
-      <!-- SOSYAL & PORTFÖY LINKLERI (4 Cols) -->
-      <section class="md:col-span-4 bg-white rounded-2xl p-6 md:p-8 border border-zinc-200/80 shadow-sm flex flex-col justify-between">
-        <div>
-          <div class="flex items-center gap-2 text-zinc-400 mb-4">
-            <i class="ph ph-link text-xl"></i>
-            <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-500">
-              Bağlantılar
+      <!-- LINKS SECTION (4 Cols) -->
+      <section class="bento-card md:col-span-4 bg-zinc-900 rounded-3xl p-8 border border-zinc-800 flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-zinc-800 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+
+        <div class="z-10">
+          <div class="flex items-center gap-2 text-zinc-500 mb-6">
+            <i class="ph ph-link text-xl text-zinc-400"></i>
+            <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold" data-i18n="linksTitle">
+              Connect
             </h2>
           </div>
 
           <ul class="space-y-3">
             <li>
-              <a href="https://yagizberkonay.com.tr" target="_blank" class="flex items-center justify-between p-3 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200/60 transition-all group">
+              <a href="https://yagizberkonay.com.tr" target="_blank" class="flex items-center justify-between p-3.5 rounded-2xl bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700/50 transition-all group">
                 <div class="flex items-center gap-3">
-                  <i class="ph ph-globe text-lg text-zinc-600"></i>
-                  <span class="text-sm font-medium text-zinc-800">Portföy</span>
+                  <i class="ph ph-globe text-lg text-zinc-300"></i>
+                  <span class="text-sm font-medium text-zinc-200" data-i18n="portfolio">Portfolio</span>
                 </div>
-                <i class="ph ph-arrow-up-right text-zinc-400 group-hover:text-zinc-900 transition-colors"></i>
+                <i class="ph ph-arrow-up-right text-zinc-500 group-hover:text-white transition-colors"></i>
               </a>
             </li>
             <li>
-              <a href="https://github.com/yagizberkonay" target="_blank" class="flex items-center justify-between p-3 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200/60 transition-all group">
+              <a href="https://github.com/yagizberkonay" target="_blank" class="flex items-center justify-between p-3.5 rounded-2xl bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700/50 transition-all group">
                 <div class="flex items-center gap-3">
-                  <i class="ph ph-github-logo text-lg text-zinc-600"></i>
-                  <span class="text-sm font-medium text-zinc-800">GitHub</span>
+                  <i class="ph ph-github-logo text-lg text-zinc-300"></i>
+                  <span class="text-sm font-medium text-zinc-200">GitHub</span>
                 </div>
-                <i class="ph ph-arrow-up-right text-zinc-400 group-hover:text-zinc-900 transition-colors"></i>
+                <i class="ph ph-arrow-up-right text-zinc-500 group-hover:text-white transition-colors"></i>
               </a>
             </li>
             <li>
-              <a href="https://x.com/yagizberkonay" target="_blank" class="flex items-center justify-between p-3 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200/60 transition-all group">
+              <a href="https://x.com/yagizberkonay" target="_blank" class="flex items-center justify-between p-3.5 rounded-2xl bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700/50 transition-all group">
                 <div class="flex items-center gap-3">
-                  <i class="ph ph-x-logo text-lg text-zinc-600"></i>
-                  <span class="text-sm font-medium text-zinc-800">X (Twitter)</span>
+                  <i class="ph ph-x-logo text-lg text-zinc-300"></i>
+                  <span class="text-sm font-medium text-zinc-200">X (Twitter)</span>
                 </div>
-                <i class="ph ph-arrow-up-right text-zinc-400 group-hover:text-zinc-900 transition-colors"></i>
+                <i class="ph ph-arrow-up-right text-zinc-500 group-hover:text-white transition-colors"></i>
               </a>
             </li>
             <li>
-              <a href="https://instagram.com/yagizjs_" target="_blank" class="flex items-center justify-between p-3 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200/60 transition-all group">
+              <a href="https://instagram.com/yagizjs_" target="_blank" class="flex items-center justify-between p-3.5 rounded-2xl bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700/50 transition-all group">
                 <div class="flex items-center gap-3">
-                  <i class="ph ph-instagram-logo text-lg text-zinc-600"></i>
-                  <span class="text-sm font-medium text-zinc-800">Instagram</span>
+                  <i class="ph ph-instagram-logo text-lg text-zinc-300"></i>
+                  <span class="text-sm font-medium text-zinc-200">Instagram</span>
                 </div>
-                <i class="ph ph-arrow-up-right text-zinc-400 group-hover:text-zinc-900 transition-colors"></i>
+                <i class="ph ph-arrow-up-right text-zinc-500 group-hover:text-white transition-colors"></i>
               </a>
             </li>
           </ul>
         </div>
 
-        <div class="mt-6 pt-4 border-t border-zinc-100 flex items-center gap-2 text-xs text-zinc-500 font-mono">
+        <div class="mt-6 pt-5 border-t border-zinc-800 flex items-center gap-2 text-xs text-zinc-400 font-mono z-10">
           <i class="ph ph-phone"></i> +90 544 257 77 60
         </div>
       </section>
 
-      <!-- HERMES SOFTWARE CARD (12 Cols - Full Width) -->
-      <section class="md:col-span-12 bg-white rounded-2xl p-6 md:p-8 border border-zinc-200/80 shadow-sm space-y-6">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-zinc-100 pb-6">
-          <div>
-            <div class="flex items-center gap-2 text-zinc-400 mb-2">
+      <!-- ARCHITECTURE GRID (12 Cols) -->
+      <section class="bento-card md:col-span-12 bg-white rounded-3xl p-8 md:p-10 border border-zinc-200/70">
+        <div class="flex items-center gap-2 text-zinc-400 mb-8">
+          <i class="ph ph-intersect text-xl"></i>
+          <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-500 font-semibold" data-i18n="archTitle">
+            Architecture & Ecosystem
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Client -->
+          <div class="p-6 rounded-2xl bg-zinc-50/80 border border-zinc-100 flex flex-col justify-between">
+            <div>
+              <i class="ph ph-layout text-2xl text-zinc-700 mb-4"></i>
+              <h3 class="text-sm font-bold text-zinc-900 mb-2" data-i18n="archClient">Client & Interface</h3>
+              <p class="text-xs text-zinc-500 leading-relaxed mb-4" data-i18n="archClientDesc">
+                Modern web architectures, responsive UIs, design systems, and high-performance cross-platform desktop ecosystems.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">TypeScript</span>
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">JavaScript (ESNext)</span>
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">React</span>
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">Next.js</span>
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">Tailwind CSS</span>
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">Tauri</span>
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">HTML5 / CSS3</span>
+            </div>
+          </div>
+
+          <!-- Core / Backend -->
+          <div class="p-6 rounded-2xl bg-zinc-50/80 border border-zinc-100 flex flex-col justify-between">
+            <div>
+              <i class="ph ph-cpu text-2xl text-zinc-700 mb-4"></i>
+              <h3 class="text-sm font-bold text-zinc-900 mb-2" data-i18n="archCore">Core & Backend</h3>
+              <p class="text-xs text-zinc-500 leading-relaxed mb-4" data-i18n="archCoreDesc">
+                Type-safe business logic, scalable API design, asynchronous processing, and high-performance runtime environments.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">Node.js</span>
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">Python</span>
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">Go</span>
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">RESTful APIs</span>
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">GraphQL</span>
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">WebSockets</span>
+            </div>
+          </div>
+
+          <!-- Infrastructure -->
+          <div class="p-6 rounded-2xl bg-zinc-50/80 border border-zinc-100 flex flex-col justify-between">
+            <div>
+              <i class="ph ph-database text-2xl text-zinc-700 mb-4"></i>
+              <h3 class="text-sm font-bold text-zinc-900 mb-2" data-i18n="archInfra">Infrastructure & Data</h3>
+              <p class="text-xs text-zinc-500 leading-relaxed mb-4" data-i18n="archInfraDesc">
+                Reliable data modeling, caching strategies, containerization, and automated cloud deployments.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">PostgreSQL</span>
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">MySQL</span>
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">Redis</span>
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">Docker</span>
+              <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[10px] font-mono text-zinc-600">Git / CI/CD</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- HERMES SOFTWARE (12 Cols) -->
+      <section class="bento-card md:col-span-12 bg-white rounded-3xl p-8 md:p-10 border border-zinc-200/70 space-y-8">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-zinc-100 pb-8">
+          <div class="max-w-3xl">
+            <div class="flex items-center gap-2 text-zinc-400 mb-3">
               <i class="ph ph-buildings text-xl text-zinc-900"></i>
-              <span class="text-xs font-mono uppercase tracking-wider text-zinc-500">
-                Girişim & Stüdyo
+              <span class="text-xs font-mono uppercase tracking-wider text-zinc-500 font-semibold" data-i18n="studioTitle">
+                Venture & Studio
               </span>
             </div>
-            <h2 class="text-2xl font-bold text-zinc-900">Hermes Software</h2>
-            <p class="text-zinc-600 text-sm mt-1 max-w-2xl">
-              Kurumsal yazılım çözümleri, otomasyon sistemleri ve özel dijital ürünler geliştiren, güncel olarak 2564 aktif müşteriye altyapı ve hizmet sunan odaklı bir yazılım stüdyosudur.
+            <h2 class="text-3xl font-bold text-zinc-900">Hermes Software</h2>
+            <p class="text-zinc-500 text-[15px] mt-3 leading-relaxed" data-i18n="hermesDesc">
+              A focused software studio developing enterprise solutions, automation systems, and custom digital products, currently providing robust infrastructure to 2,000+ active customers.
             </p>
           </div>
 
-          <div class="flex items-center gap-3">
-            <a href="https://hermessoftware.net" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-900 rounded-xl text-xs font-semibold border border-zinc-200 transition-colors">
-              <i class="ph ph-globe text-sm"></i>
+          <div class="flex items-center gap-3 shrink-0">
+            <a href="https://hermessoftware.net" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-50 hover:bg-zinc-100 text-zinc-900 rounded-xl text-sm font-semibold border border-zinc-200 transition-colors">
+              <i class="ph ph-globe text-base"></i>
               <span>hermessoftware.net</span>
             </a>
-            <a href="mailto:contact@hermessoftware.net" class="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white rounded-xl text-xs font-semibold transition-colors">
-              <i class="ph ph-envelope-simple text-sm"></i>
-              <span>İletişim</span>
+            <a href="mailto:contact@hermessoftware.net" class="inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-900 hover:bg-zinc-800 text-white rounded-xl text-sm font-semibold transition-colors">
+              <i class="ph ph-envelope-simple text-base"></i>
+              <span data-i18n="contact">Contact</span>
             </a>
           </div>
         </div>
 
-        <!-- Hizmetler & Fiyatlar (Gömülü Alan) -->
-        <div class="space-y-3">
+        <!-- Embedded Services HTML -->
+        <div class="space-y-4">
           <div class="flex items-center justify-between">
-            <h3 class="text-xs font-mono uppercase tracking-wider text-zinc-400">
-              Hizmetler & Paketler
+            <h3 class="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold" data-i18n="servicesTitle">
+              Services & Pricing
             </h3>
-            <span class="text-[10px] font-mono bg-zinc-100 px-2 py-0.5 rounded text-zinc-500 border border-zinc-200">
-              Embedded HTML
+            <span class="flex items-center gap-1.5 text-[10px] font-mono bg-zinc-100 px-2.5 py-1 rounded-md text-zinc-500 border border-zinc-200">
+              <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Live Embedded
             </span>
           </div>
 
-          <div class="w-full min-h-[300px] bg-zinc-50 border border-zinc-200/80 rounded-xl overflow-hidden relative">
+          <div class="w-full h-[400px] bg-zinc-50/50 border border-zinc-200/80 rounded-2xl overflow-hidden relative group">
             
-            <!-- Harici HTML dosyanı buradaki iframe src kısmına bağlayabilirsin -->
             <iframe 
               src="hizmetler-fiyatlar.html" 
-              title="Hermes Software Hizmetler ve Fiyatlar" 
-              class="w-full h-[320px] border-none absolute inset-0 z-10"
+              title="Hermes Software Services" 
+              class="w-full h-full border-none absolute inset-0 z-10"
             ></iframe>
             
-            <!-- İframe yüklenene kadar veya dosya yoksa görünecek yer tutucu -->
-            <div class="absolute inset-0 pointer-events-none flex items-center justify-center text-zinc-400 text-xs font-mono z-0">
-              [ Gömülü Hizmetler & Fiyatlandırma HTML Alanı ]
+            <div class="absolute inset-0 flex items-center justify-center text-zinc-400 text-sm font-mono z-0 bg-zinc-50">
+              <div class="text-center space-y-2">
+                <i class="ph ph-code text-2xl"></i>
+                <p>[ Iframe Content ]</p>
+              </div>
             </div>
           </div>
         </div>
@@ -199,11 +273,82 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="text-center py-4 text-xs text-zinc-400 font-mono">
-      © 2026 Yağız Berk Önay & Hermes Software. Tüm hakları saklıdır.
+    <footer class="text-center py-6 text-xs text-zinc-400 font-mono" data-i18n="footer">
+      © 2026 Yağız Berk Önay & Hermes Software. All rights reserved.
     </footer>
 
   </div>
 
+  <!-- i18n Script -->
+  <script>
+    let currentLang = 'en';
+
+    const translations = {
+      en: {
+        role: "Senior Software Engineer & Founder",
+        heroDesc: "Architecting scalable systems, enterprise platforms, and modern web ecosystems.",
+        whatsapp: "WhatsApp",
+        email: "Email",
+        aboutTitle: "Vision & Approach",
+        aboutText1: "I approach software engineering not merely as writing code, but as building resilient, scalable architectures that solve complex business problems.",
+        aboutText2: "My focus is on designing systems that anticipate bottlenecks, strictly adhere to clean code principles, and prioritize the end-user experience. I believe that while frameworks and tools constantly evolve, solid engineering fundamentals, system design, and architectural integrity remain permanent.",
+        linksTitle: "Connect",
+        portfolio: "Portfolio",
+        archTitle: "Architecture & Ecosystem",
+        archClient: "Client & Interface",
+        archClientDesc: "Modern web architectures, responsive UIs, design systems, and high-performance cross-platform desktop ecosystems.",
+        archCore: "Core & Backend",
+        archCoreDesc: "Type-safe business logic, scalable API design, asynchronous processing, and high-performance runtime environments.",
+        archInfra: "Infrastructure & Data",
+        archInfraDesc: "Reliable data modeling, caching strategies, containerization, and automated cloud deployments.",
+        studioTitle: "Venture & Studio",
+        hermesDesc: "A focused software studio developing enterprise solutions, automation systems, and custom digital products, currently providing robust infrastructure to 2,000+ active customers.",
+        contact: "Contact",
+        servicesTitle: "Services & Pricing",
+        footer: "© 2026 Yağız Berk Önay & Hermes Software. All rights reserved."
+      },
+      tr: {
+        role: "Kıdemli Yazılım Mühendisi & Kurucu",
+        heroDesc: "Ölçeklenebilir sistemler, kurumsal platformlar ve modern web ekosistemleri inşa ediyorum.",
+        whatsapp: "WhatsApp",
+        email: "E-posta",
+        aboutTitle: "Vizyon & Yaklaşım",
+        aboutText1: "Yazılım geliştirme sürecine sadece kod yazmak olarak değil, karmaşık iş problemlerini çözen, dayanıklı ve ölçeklenebilir mimariler inşa etmek olarak yaklaşıyorum.",
+        aboutText2: "Performans darboğazlarını öngören, temiz kod prensiplerinden taviz vermeyen ve son kullanıcı deneyimini merkeze alan sistemler kurguluyorum. Çatılar ve araçlar sürekli değişse de, sağlam mühendislik temellerinin, sistem tasarımının ve mimari bütünlüğün kalıcı olduğuna inanıyorum.",
+        linksTitle: "Bağlantılar",
+        portfolio: "Portföy",
+        archTitle: "Mimari & Ekosistem",
+        archClient: "İstemci & Arayüz",
+        archClientDesc: "Modern web mimarileri, duyarlı arayüzler, tasarım sistemleri ve yüksek performanslı çapraz platform masaüstü ekosistemleri.",
+        archCore: "Çekirdek & Backend",
+        archCoreDesc: "Tip güvenli iş mantığı, ölçeklenebilir API tasarımı, asenkron işlemler ve yüksek performanslı çalışma zamanı ortamları.",
+        archInfra: "Altyapı & Veri",
+        archInfraDesc: "Güvenilir veri modelleme, önbellekleme stratejileri, konteynerleştirme ve otomatik bulut dağıtımları.",
+        studioTitle: "Girişim & Stüdyo",
+        hermesDesc: "Kurumsal yazılım çözümleri, otomasyon sistemleri ve özel dijital ürünler geliştiren, güncel olarak 2000'den fazla aktif müşteriye altyapı ve hizmet sunan odaklı bir yazılım stüdyosu.",
+        contact: "İletişim",
+        servicesTitle: "Hizmetler & Paketler",
+        footer: "© 2026 Yağız Berk Önay & Hermes Software. Tüm hakları saklıdır."
+      }
+    };
+
+    function updateContent() {
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          el.innerText = translations[currentLang][key];
+        }
+      });
+      document.getElementById('langLabel').innerText = currentLang === 'en' ? 'TR' : 'EN';
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'tr' : 'en';
+      updateContent();
+    }
+
+    updateContent();
+  </script>
 </body>
 </html>
